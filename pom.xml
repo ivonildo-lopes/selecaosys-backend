@@ -49,7 +49,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>arquiteturaBase</finalName>
+		<finalName></finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
