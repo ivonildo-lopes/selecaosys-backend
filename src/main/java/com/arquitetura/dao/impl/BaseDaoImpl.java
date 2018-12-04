@@ -71,12 +71,12 @@ public abstract class BaseDaoImpl<E extends BaseEntity<?>> implements BaseDao<E>
 
 	@Override
 	public boolean exists(Serializable id) {
-		return findOne(id) != null;
+		return findById(id) != null;
 	}
 
 	@Override
 	public ArrayList<E> findAll() {
-		return (ArrayList<E>) entityManager.createQuery(String.format("FROM %s", clazz.getSimpleName()), clazz).setMaxResults(10)
+		return (ArrayList<E>) entityManager.createQuery(String.format("FROM %s", clazz.getSimpleName()), clazz)
 				.getResultList();
 	}
 
@@ -84,7 +84,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity<?>> implements BaseDao<E>
 	public ArrayList<E> findAll(Iterable<Serializable> ids) {
 		ArrayList<E> ArrayLista = new ArrayList<>();
 		for (Serializable id : ids) {
-			ArrayLista.add(findOne(id));
+			ArrayLista.add(findById(id));
 		}
 		return ArrayLista;
 	}
@@ -103,7 +103,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity<?>> implements BaseDao<E>
 
 	@Override
 	public E findById(Serializable id) {
-		return findOne(id);
+		return findById(id);
 	}
 
 	@Override
